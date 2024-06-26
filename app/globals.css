@@ -1,4 +1,17 @@
 :root {
+    /* #region CUSTOM */
+    --color-primary: #004865;
+    --color-secondary: #DB7500;
+    --color-accent: #00AEF4;
+    --color-danger: #DB3800;
+    --color-background-1: #C4C4C4;
+
+    --border-radius: 10px;
+    --border-radius-buttons: 30px;
+
+    --flex-gap: 20px;
+    /* #endregion CUSTOM */
+    
     --max-width: 1100px;
     --border-radius: 12px;
     --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",

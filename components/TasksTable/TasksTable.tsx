@@ -40,6 +40,7 @@ const TasksTable = () => {
                             onChange={(e) =>
                                 setNewTask({ ...newTask, text: e.target.value })
                             }
+                            className={"input"}
                         />
                     </td>
                     <td>
@@ -48,7 +49,7 @@ const TasksTable = () => {
                             id="user-select"
                             onChange={(e) =>
                                 setSelectedUserId(Number(e.target.value))
-                            }
+                            } className={"input"}
                         >
                             {users.map((user) => (
                                 <option key={user.id} value={user.id}>

@@ -2,6 +2,8 @@
 
 import { Container, Sidebar } from "@/components"
 import styles from "./page.module.css"
+import "../styles/typography.css"
+import "../styles/inputs.css"
 import AppContextProvider from "@/contexts/AppContextProvider"
 import { Toaster } from "sonner"
 

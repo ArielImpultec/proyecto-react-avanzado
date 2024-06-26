@@ -20,19 +20,10 @@
     padding: 0.25rem 0.5rem;
 }
 
-.TasksTable input,
-.TasksTable select {
-    background-color: transparent;
-    border: solid 1px #989da5;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    width: 100%;
-    outline: none;
-    color: #4a4e55;
+.TasksTable tbody tr:not(:last-child):not(:first-child) td{
+    border-bottom: 1px solid #C2C2C2;
 }
-.TasksTable select {
-    cursor: pointer;
-}
+
 .TasksTable button {
     cursor: pointer;
     background-color: transparent;

@@ -9,14 +9,14 @@ const Content = () => {
         <div className={styles.content}>
             <div className={styles.frame}>
                 <div className={styles.div}>
-                    <div className={styles["text-wrapper"]}>Last tasks</div>
+                    <div className={styles["text-wrapper"]}>Tareas</div>
                     <p className={styles["element-total-proceed-to"]}>
                         <span className={styles.span}>
                             {tasks.length} total
                         </span>
                         <span className={styles["text-wrapper-2"]}>, </span>
                         <span className={styles["text-wrapper-3"]}>
-                            proceed to resolve them
+                       { tasks.filter( (task) => task.status === "completed").length} pendientes
                         </span>
                     </p>
                 </div>

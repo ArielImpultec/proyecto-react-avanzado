@@ -26,7 +26,22 @@ export const initialTasks: Task[] = [
         id: 10,
         text: "Diseñar la página de configuración",
         status: "in-progress"
-    }
+    },
+    {
+        id: 11,
+        text: "Diseñar dashboard en Figma",
+        status: "completed"
+    },
+    {
+        id: 12,
+        text: "Maquetar dashboard",
+        status: "in-progress"
+    },
+    {
+        id: 13,
+        text: "Configurar estilos globales",
+        status: "in-progress"
+    },
 ]
 
 export const initialUsers: User[] = [
@@ -35,5 +50,6 @@ export const initialUsers: User[] = [
     { id: 3, username: "davidrodriguez", task_ids: [3, 9] },
     { id: 4, username: "lauramartinez", task_ids: [10, 8] },
     { id: 5, username: "carloslopez", task_ids: [1, 7] },
-    { id: 6, username: "anaperez", task_ids: [4] }
+    { id: 6, username: "anaperez", task_ids: [4] },
+    { id: 7, username: "arielgonzalez", task_ids: [11, 12, 13] }
 ]

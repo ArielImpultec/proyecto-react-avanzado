@@ -1,0 +1,13 @@
+.input {
+    border-radius: var(--border-radius-buttons);
+    background-color: transparent;
+    border: solid 1px #989da5;
+    padding: 6px 20px;
+    width: 100%;
+    outline: none;
+    color: #4a4e55;
+}
+
+select.input {
+    cursor: pointer;
+}
