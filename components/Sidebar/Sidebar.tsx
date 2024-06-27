@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Sidebar = () => {
     return (
         <div className={styles.Sidebar}>
-            <h2 className={`${styles.Title} t-h2`}>Dashboard</h2>
+            <h4 className={`${styles.Title} t-h4`}>Dashboard</h4>
             <div className={styles.List}>
                 <Link href="/"  className={styles.Routes}>
                 Home
@@ -16,8 +16,8 @@ const Sidebar = () => {
                 <Link href="/usuarios"  className={styles.Routes}>
                 Usuarios
                 </Link>
-                <Link href="/contacto"  className={styles.Routes}>
-                Contacto
+                <Link href="/about"  className={styles.Routes}>
+                Sobre nosotros
                 </Link>
             </div>
 

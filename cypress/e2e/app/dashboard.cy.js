@@ -28,47 +28,32 @@ describe('Tasks Table', () => {
   })
 
   it('should add a new task and assign it to a user', () => {
-      // Test data
       const newTaskText = 'Nueva Tarea'
       const userToAssign = 'joseperez'
 
-      // Enter new task text
       cy.get('#task-input').type(newTaskText)
-
-      // Select user from dropdown
       cy.get('select#user-select').select(userToAssign)
-
-      // Click the add task button
       cy.get('button#create-task-button').click()
 
-      // Verify the new task is added to the table
       cy.get('table#tasks-table tbody tr').last().within(() => {
-          cy.get('td').eq(0).should('contain', newTaskText) // Task text
-          cy.get('td').eq(1).should('contain', userToAssign) // Assigned user
-          cy.get('td').eq(2).should('contain', 'not-started') // Task status
+          cy.get('td').eq(0).should('contain', newTaskText)
+          cy.get('td').eq(1).should('contain', userToAssign)
+          cy.get('td').eq(2).should('contain', 'not-started')
       })
   })
 
   it('should assign the task to any user', () => {
-      // Test data
       const newTaskText = 'Otra Tarea'
-      const users = ['joseperez', 'mariagarcia'] // Add all users you have
+      const users = ['joseperez', 'mariagarcia']
 
       users.forEach(user => {
-          // Enter new task text
           cy.get('#task-input').clear().type(newTaskText)
-
-          // Select user from dropdown
           cy.get('select#user-select').select(user)
-
-          // Click the add task button
           cy.get('button#create-task-button').click()
-
-          // Verify the new task is added to the table
           cy.get('table#tasks-table tbody tr').last().within(() => {
-              cy.get('td').eq(0).should('contain', newTaskText) // Task text
-              cy.get('td').eq(1).should('contain', user) // Assigned user
-              cy.get('td').eq(2).should('contain', 'not-started') // Task status
+              cy.get('td').eq(0).should('contain', newTaskText)
+              cy.get('td').eq(1).should('contain', user)
+              cy.get('td').eq(2).should('contain', 'not-started')
           })
       })
   })
