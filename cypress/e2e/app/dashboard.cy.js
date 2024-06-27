@@ -19,22 +19,57 @@ describe('Verificar elementos en la tabla', () => {
     });
   });
 
-  // describe('Agregar nueva tarea y verificar en la tabla', () => {
-  //   it('Debe añadir una nueva tarea y verificar en la tabla', () => {
-  //     cy.visit('http://localhost:3000');
-      
-  //     const nuevaTarea = 'Tarea de prueba';
-  //     cy.get('input#input-tareas')
-  //     .type(nuevaTarea)
-  //     .should('have.value', nuevaTarea);
+  // cypress/integration/tasks.spec.ts
 
-  //   const usuarioSeleccionado = 'joseperez';
-  //   cy.get('select#user-select')
-  //     .select(usuarioSeleccionado)
-  //     .should('have.value', 1);
-  //   cy.get('input#input-tareas').type('{enter}');
-  //  cy.contains('table#tasks-table tbody tr', nuevaTarea)
-  //     .should('exist');
-  //    });
-  // });
-  
+describe('Tasks Table', () => {
+  beforeEach(() => {
+      // Asume que el servidor de desarrollo de Next.js se está ejecutando en localhost:3000
+      cy.visit('http://localhost:3000')
+  })
+
+  it('should add a new task and assign it to a user', () => {
+      // Test data
+      const newTaskText = 'Nueva Tarea'
+      const userToAssign = 'joseperez'
+
+      // Enter new task text
+      cy.get('#task-input').type(newTaskText)
+
+      // Select user from dropdown
+      cy.get('select#user-select').select(userToAssign)
+
+      // Click the add task button
+      cy.get('button#create-task-button').click()
+
+      // Verify the new task is added to the table
+      cy.get('table#tasks-table tbody tr').last().within(() => {
+          cy.get('td').eq(0).should('contain', newTaskText) // Task text
+          cy.get('td').eq(1).should('contain', userToAssign) // Assigned user
+          cy.get('td').eq(2).should('contain', 'not-started') // Task status
+      })
+  })
+
+  it('should assign the task to any user', () => {
+      // Test data
+      const newTaskText = 'Otra Tarea'
+      const users = ['joseperez', 'mariagarcia'] // Add all users you have
+
+      users.forEach(user => {
+          // Enter new task text
+          cy.get('#task-input').clear().type(newTaskText)
+
+          // Select user from dropdown
+          cy.get('select#user-select').select(user)
+
+          // Click the add task button
+          cy.get('button#create-task-button').click()
+
+          // Verify the new task is added to the table
+          cy.get('table#tasks-table tbody tr').last().within(() => {
+              cy.get('td').eq(0).should('contain', newTaskText) // Task text
+              cy.get('td').eq(1).should('contain', user) // Assigned user
+              cy.get('td').eq(2).should('contain', 'not-started') // Task status
+          })
+      })
+  })
+});

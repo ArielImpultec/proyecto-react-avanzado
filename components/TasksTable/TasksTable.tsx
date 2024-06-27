@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import styles from "./TasksTable.module.css"
 import TaskStatusComponent from "./TaskStatusComponent"
 import { Task } from "@/models"
-import { IoCheckmarkCircleOutline } from "react-icons/io5"
+import { PiPlusCircle } from "react-icons/pi";
 
 const TasksTable = () => {
     const { tasks, addNewTask } = useTasks()
@@ -36,9 +36,10 @@ const TasksTable = () => {
                     <td>
                         <input
                             type="text"
+                            id="task-input"
                             value={newTask.text}
                             onChange={(e) =>
-                                setNewTask({ ...newTask, text: e.target.value })
+                                setNewTask({ ...newTask, text: e.target.value }) 
                             }
                             className={"input"}
                         />
@@ -60,7 +61,7 @@ const TasksTable = () => {
                     </td>
                     <td>
                         <button id="create-task-button" onClick={createNewTask}>
-                            <IoCheckmarkCircleOutline />
+                            Añadir <PiPlusCircle />
                         </button>
                     </td>
                 </tr>
